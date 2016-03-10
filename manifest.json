@@ -1,0 +1,42 @@
+{
+	"manifest_version": 2,
+	"name": "MarkSpider",
+	"version": "1.0",
+	"description": "A tool to search your bookmarks",
+	"icons": {
+		"16":"images/markspider_16.png",
+		"19":"images/markspider_19.png",
+		"38":"images/markspider_38.png",
+		"128":"images/markspider.png"
+	},
+	"browser_action": {
+		"default_icon": {
+			"19":"images/markspider_19.png",
+			"38":"images/markspider_38.png"
+		},
+		"default_title": "MarkSpider",
+		"default_popup": "popup.html"
+	},
+	"background": {
+		"scripts": ["js/background.js"]
+	},
+	"content_scripts": [
+		{
+			"matches": ["http://*/*","https://*/*"],
+			"css": ["tagman.css"],
+			"js": ["js/markspider.js"]
+		}
+	],
+	"permissions": [
+		"bookmarks",
+		"http://*/*",
+		"https://*/*",
+		"storage",
+		"contextMenus"
+	],
+	"omnibox": { "keyword": "MarkSpider" },
+	"web_accessible_resources": [
+		"images/*.png"
+	]
+
+}
